@@ -1,0 +1,14 @@
+#carouselExampleDark{
+
+    width: 100%;
+    display: block;
+    position: fixed;
+    color: black;
+}
+
+img{
+overflow-clip-margin: content-box;
+overflow: clip;
+width: 80%;
+height: 400px;
+}

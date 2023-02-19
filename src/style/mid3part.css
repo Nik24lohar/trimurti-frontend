@@ -1,0 +1,30 @@
+.main{
+    background-color: rgba(124, 175, 182, 0.613);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-items: center;
+    margin-left: 30%;
+}
+#kl{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.buttonlike {
+    background-color: rgba(255, 255, 255, 0.391);
+    color: rgb(7, 7, 7);
+    border: 2px solid #e7e7e7;
+
+    /* Green */
+    border: none;
+   
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .buttonlike:hover {background-color: #e7e7e7; color: rgb(0, 0, 0);}

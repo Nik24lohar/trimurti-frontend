@@ -1,0 +1,34 @@
+.back{
+    position: absolute;
+    background-color: #508bfc;
+    width: 100%;
+    height: 100%;
+ 
+    overflow: hidden;
+}
+.main{
+    margin-top: 50px;
+    width: 500px;
+    background-color: white;
+    height: 600px;
+    border-radius: 10px;
+
+}
+.middel_section{
+    margin-top: 100px;
+    width: 90%;
+    margin-left: 25px;
+}
+.btn{
+    background-color: #376BC0;
+    color: white;
+    width: 90%;
+    margin-top: 30px;
+    font-size: 1.0em;
+}
+.btn1{
+    
+    color: rgb(0, 0, 0);
+    font-size: large;
+    
+}
