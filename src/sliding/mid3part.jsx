@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import '../style/mid3part.css';
+
+
 export class mid3part extends Component {
   render() {
     return (

@@ -1,31 +1,20 @@
-import React, { useState , useEffect} from 'react'
+import React, {useState} from 'react'
 import Navbar from '../navbar/navbar'
 import Footer from '../sliding/footer'
+import {storage} from '../firebase/firebase'
 
-import useDrivePicker from 'react-google-drive-picker'
 
 function Product() {
-
-  const [openPicker,data, authResponse] = useDrivePicker();  
+  const [image,setImage]=useState('');
+ 
   // const customViewsArray =  [new google.picker.DocsView()]; // custom view
   const handleOpenPicker = () => {
-    openPicker({
-      clientId: "835939200765-mormgim1go51b2rsr2g8mssllrduk9lr.apps.googleusercontent.com",
-      developerKey: "AIzaSyDybJxJ8gv9sVs5SRq2v1MrxOSyJF48mXk",
-      viewId: "DOCS",
-      // token: token, // pass oauth token in case you already have one
-      showUploadView: true,
-      showUploadFolders: true,
-      supportDrives: true,
-      multiselect: true,
-      // customViews: customViewsArray, // custom view
-    })
+    if(image==null)
+    return;
+    const imageref = storage.ref('/images/${image.name}').put(image).on("state_changed",alert('success'),alert);
+    imageref();
   }
-useEffect(()=>{
-  if (data){
-    data.docs.map((i)=>console.log(i))
-  }
-},[data])
+
 
     return (
         <div>
@@ -38,6 +27,7 @@ useEffect(()=>{
         <div className='middel_section'>
         <div className="form-outline mb-4">
           <input type="productName" id="productName" placeholder='productName' className="form-control form-control-lg" />
+          <input type="file" onChange={(e)=>{setImage(e.target.files[0])}}/>
         </div>
         {/**
          *  "Id": 1,
