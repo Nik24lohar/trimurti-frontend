@@ -16,7 +16,7 @@ function Product() {
   // const customViewsArray =  [new google.picker.DocsView()]; // custom view
   const uploadfile=(files)=>{
       if (!files) return ;
-      const storageref = ref(Storage, `/files/filter.jpg`);
+      const storageref = ref(Storage, `/files/${files.name}`);
       const uploadTask=uploadBytesResumable(storageref,files);
       uploadTask.on("state_changed",(snapshot)=>{
         const prog=Math.round( [snapshot.bytesTransferred/snapshot.totalBytes]*100);
