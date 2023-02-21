@@ -1,19 +1,36 @@
 import React, {useState} from 'react'
 import Navbar from '../navbar/navbar'
 import Footer from '../sliding/footer'
-import {storage} from '../firebase/firebase'
-
+import {Storage} from '../firebase'
+import {getDownloadURL, ref,uploadBytesResumable} from 'firebase/storage'
 
 function Product() {
-  const [image,setImage]=useState('');
+  const [progress , setProgress]=useState(0);
+  const formHandler=(e)=>{
+    e.preventDefault();
+    const file = e.target[0].files[0];
+    uploadfile(file);
+  }
+  const [imageUpload,setImageUload]=useState(null);
  
   // const customViewsArray =  [new google.picker.DocsView()]; // custom view
-  const handleOpenPicker = () => {
-    if(image==null)
-    return;
-    const imageref = storage.ref('/images/${image.name}').put(image).on("state_changed",alert('success'),alert);
-    imageref();
-  }
+  const uploadfile=(files)=>{
+      if (!files) return ;
+      const storageref = ref(Storage,`/files/filter.jpg`);
+      const uploadTask=uploadBytesResumable(storageref,files);
+      uploadTask.on("state_changed",(snapshot)=>{
+        const prog=Math.round( [snapshot.bytesTransferred/snapshot.totalBytes]*100);
+      setProgress(prog)
+      },(error)=>{
+        alert(error);
+      },()=>{
+        getDownloadURL(uploadTask.snapshot.ref).then(url=>alert(url));
+      });
+
+  };
+      
+      
+
 
 
     return (
@@ -27,17 +44,9 @@ function Product() {
         <div className='middel_section'>
         <div className="form-outline mb-4">
           <input type="productName" id="productName" placeholder='productName' className="form-control form-control-lg" />
-          <input type="file" onChange={(e)=>{setImage(e.target.files[0])}}/>
+  
         </div>
-        {/**
-         *  "Id": 1,
-      "picture": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "productName": "Camera",
-      "availableQuantity": 2,
-      "pricePerUnit": 30000,
-      "description": "wonderfull camera"
-         */}
-
+        <h3>Upload {progress}%</h3>
         <div className="form-outline mb-4">
           <input type="availableQuantity" id="availableQuantity" placeholder='availableQuantity' className="form-control form-control-lg" />
         </div>
@@ -47,9 +56,12 @@ function Product() {
         <div className="form-outline mb-4">
           <input type="description" id="description" placeholder='description' className="form-control form-control-lg" />
         </div>
-        <button type="submit" className="btn " onClick={handleOpenPicker}>
-                          Add product
-        </button>
+        <div className="form-outline mb-4">
+          <input type="file" id="productName" placeholder='productName' className="form-control form-control-lg"
+          onChange={(event)=>{uploadfile(event.target.files[0]);}}
+          />
+        </div>
+<button onClick={uploadfile}> Click and Upload</button>
         </div>
       </form>
         </div>
