@@ -5,7 +5,7 @@ import Footer from '../sliding/footer'
 import swal from 'sweetalert';
 import axios from 'axios';
 function Login() {
-  const url="http://127.0.0.1:8000/login/";
+  const url="https://web-production-b900.up.railway.app/login/";
   const [data,setData]=useState(
     {
       "email": "",

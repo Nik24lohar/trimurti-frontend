@@ -12,7 +12,6 @@ function Product() {
     uploadfile(file);
   }
   const [imageUpload,setImageUload]=useState(null);
- 
   // const customViewsArray =  [new google.picker.DocsView()]; // custom view
   const uploadfile=(files)=>{
       if (!files) return ;
