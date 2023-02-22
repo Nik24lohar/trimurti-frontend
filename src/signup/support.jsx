@@ -3,7 +3,7 @@ import React ,{useState}from 'react'
 import swal from 'sweetalert';
 
 function Support() {
-  const url="https://web-production-b900.up.railway.app/user/";
+  const  url="https://web-production-b900.up.railway.app/user/";
   const [data,setData]= useState(
     {
       "email": "",
