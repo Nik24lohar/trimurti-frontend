@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './login.css'
+import './product.css'
 import Navbar from '../navbar/navbar'
 import Footer from '../sliding/footer'
 import swal from 'sweetalert';
@@ -10,6 +10,7 @@ function product() {
  
     return (
       <div>
+       <Navbar/>
        
       </div>
     )
