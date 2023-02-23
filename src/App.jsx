@@ -4,7 +4,7 @@ import Login from './login/login'
 import Admin from './Admin/product'
 import './App.css';
 import SignUp from './signup/signup'
-
+import Product from './product/product'
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <Route path="/" element={<Homepage/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
+      <Route path="/product" element={<Product/>} />
       <Route path="/admin/product" element={<Admin/>} />
     </Routes>
     </BrowserRouter>

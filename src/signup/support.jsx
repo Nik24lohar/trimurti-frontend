@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React ,{useState}from 'react'
 import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
 function Support() {
-  const  url="https://web-production-b900.up.railway.app/user/";
+  const navigate = useNavigate();
+  const  url="http://127.0.0.1:8000/user/";
   const [data,setData]= useState(
     
     {
@@ -40,6 +42,7 @@ function Support() {
               icon: "success",
               button: "ok",
             });
+            navigate('/login', { replace: true });
           }
           if (res.data.message === "fail to register"){
             swal({

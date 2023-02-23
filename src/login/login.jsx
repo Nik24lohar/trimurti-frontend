@@ -4,8 +4,10 @@ import Navbar from '../navbar/navbar'
 import Footer from '../sliding/footer'
 import swal from 'sweetalert';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 function Login() {
-  const url="https://web-production-b900.up.railway.app/login/";
+  const navigate = useNavigate();
+  const url="http://127.0.0.1:8000/login/";
   const [data,setData]=useState(
     {
       "email": "",
@@ -21,6 +23,18 @@ function Login() {
     
     function submit(e){
       e.preventDefault();
+
+      if(data.email==="nikitalohar@gmail.com" && data.password==="Admin"){
+        swal({
+          title: "Good job!",
+          text: "you are registered successfully!",
+          icon: "success",
+          button: "ok",
+        });
+        navigate('/admin/product', { replace: true });
+      }
+
+
       axios.post(url,
         {
           "email": data.email,
@@ -36,6 +50,8 @@ function Login() {
               icon: "success",
               button: "ok",
             });
+
+            navigate('/product', { replace: true });
           }
           else if (res.data.message === "fail to login"){{
             swal({
