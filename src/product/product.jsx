@@ -1,15 +1,50 @@
 import {React,useEffect,useState} from 'react'
+import { useDispatch } from 'react-redux';
 import Navbar from '../navbar/navbar.jsx'
-
 import './product.css'
-
-
+import axios from 'axios';
+import swal from 'sweetalert';
 function Product() {
     const [products , setProduct]=useState([]);
     const handleBtnClick = (id) => {
         console.log(id);
       };
 
+      
+      const send=(e)=>{
+        e=JSON.stringify(e);
+        console.log(e);
+        const url="http://localhost:8000/product/card";
+
+        axios.post(url,
+            e
+              ).then(
+            res=>{
+              if (res.data.message === "login successfully"){
+                swal({
+                  title: "Good job!",
+                  text: "product is added in card!",
+                  icon: "success",
+                  button: "ok",
+                });
+    
+                
+              }
+              else if (res.data.message === "fail to login"){{
+                swal({
+                  title: "try again",
+                  text: "fail to add in card",
+                  icon: "error",
+                  button: "ok",
+                });
+              }
+             
+               } 
+            }
+            )
+
+
+      }
     const getProduct = async()=>{
         const response = await fetch('http://localhost:8000/product/product');
         console.log(response);
@@ -40,7 +75,7 @@ function Product() {
             {
                 products.map((curElem)=>{
                     return(
-              
+              <>
              
                 <div className='card'>
                 <img src={curElem.picture} alt="product" className='productimage' />
@@ -49,9 +84,10 @@ function Product() {
                     <p>{curElem.description}</p>
                 </div>
             
-                <button className='btn' type="submit" value={curElem.Id}  onClick={handleBtnClick(curElem.Id)}>ADD TO CARD</button>
+                <button className='btn'  value={curElem.Id}  onClick={()=>send(curElem)}>ADD TO CARD</button>
                         </div>
-               
+                
+                </>
                     )
                 })
             }

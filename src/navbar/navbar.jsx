@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import './navbar.css'
-export class navbar extends Component {
-  render() {
+import { useSelector } from 'react-redux';
+function Navbar() {
+  
+    const getdata = useSelector((state)=>state.cartreducer);
+console.log(getdata) 
     return (
       <div>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,7 +29,7 @@ export class navbar extends Component {
                 <a className="nav-link " href="Feedback">Feedback</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link " href="admin/product" >Admin</a>
+                <a className="nav-link " href="/login" >Admin</a>
               </li>
               <li id="login" className="nav-item">
                 <a className="nav-link " href="/login">login</a>
@@ -40,6 +43,6 @@ export class navbar extends Component {
       </div>
     )
   }
-}
 
-export default navbar
+
+export default Navbar

@@ -22,9 +22,16 @@
 .btn{
     background-color: #376BC0;
     color: white;
-    width: 90%;
-    margin-top: 30px;
-    font-size: 1.0em;
+  
+}
+.btn2{
+    color: aliceblue;
+    background-color: #376BC0;
+    width: 200px;
+    border: none;
+    height: 50px;
+    outline: none;
+    border-radius: 5px;
 }
 .btn1{
     

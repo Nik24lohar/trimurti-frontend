@@ -71,7 +71,7 @@ function Login() {
     <div>
     <Navbar/>
       <div className="back">
-        
+       
         <div className="main">
         <h3 className="mb-5">Sign in</h3>
         <form onSubmit={(e)=>submit(e)}>
@@ -88,7 +88,7 @@ function Login() {
           <label className="form-check-label" htmlFor="form1Example3"> Remember password </label>
           
         </div>
-        <button type="submit" className="btn ">
+        <button type="submit" className="btn2">
                           LOGIN
         </button>
         <hr/>
@@ -97,9 +97,11 @@ function Login() {
         </div>
       </form>
         </div>
-       
+        
       </div>
+    
       <Footer/>
+      
   </div>
   )
 }
