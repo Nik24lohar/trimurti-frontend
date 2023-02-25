@@ -89,12 +89,11 @@ function Product() {
       <div className="back">
         
         <div className="main">
-        <h3 className="mb-5">Sign in</h3>
+        <h3 className="mb-5">Product</h3>
         <form onSubmit={(e)=>submit(e)}>
         <div className='middel_section'>
         <div className="form-outline mb-4">
           <input type="productName" onChange={(e)=>handle(e)} id="productName"  value={data.productName}placeholder='productName' className="form-control form-control-lg" />
-  
         </div>
         
         <div className="form-outline mb-4">

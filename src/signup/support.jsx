@@ -1,9 +1,19 @@
 import axios from 'axios'
 import React ,{useState}from 'react'
 import swal from 'sweetalert';
+import './signup.css'
 import { useNavigate } from 'react-router-dom';
+import { useFormik } from 'formik';
 
 function Support() {
+
+useFormik({
+  initialValues:initialValues,
+  onSubmit:(values)=>{
+    console.log
+  },
+})
+
   const navigate = useNavigate();
   const  url="http://127.0.0.1:8000/user/";
   const [data,setData]= useState(
@@ -113,7 +123,7 @@ function Support() {
                             </label>
                           </div>
                           {/* Submit button */}
-                          <button type="submit" className="btn btn-primary btn-block mb-5 w-100" >
+                          <button type="submit" className="btn1" >
                             Sign up
                           </button>
                           {/* Register buttons */}

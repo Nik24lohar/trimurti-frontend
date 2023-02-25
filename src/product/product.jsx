@@ -20,7 +20,7 @@ function Product() {
           
           swal({
             title: "Good job!",
-            text: "you are registered successfully!",
+            text: "you product added to card successfully!",
             icon: "success",
             button: "ok",
           });
