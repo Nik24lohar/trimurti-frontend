@@ -19,7 +19,7 @@ function Product() {
           .then(data => this.setState(e));
           
           swal({
-            title: "Good job!",
+            title: "added to card!",
             text: "you product added to card successfully!",
             icon: "success",
             button: "ok",
