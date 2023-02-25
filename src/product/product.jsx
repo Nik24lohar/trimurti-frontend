@@ -1,48 +1,29 @@
 import {React,useEffect,useState} from 'react'
-import { useDispatch } from 'react-redux';
 import Navbar from '../navbar/navbar.jsx'
 import './product.css'
-import axios from 'axios';
+
 import swal from 'sweetalert';
 function Product() {
     const [products , setProduct]=useState([]);
-    const handleBtnClick = (id) => {
-        console.log(id);
-      };
-
-      
       const send=(e)=>{
-        e=JSON.stringify(e);
         console.log(e);
         const url="http://localhost:8000/product/card";
-
-        axios.post(url,
-            e
-              ).then(
-            res=>{
-              if (res.data.message === "login successfully"){
-                swal({
-                  title: "Good job!",
-                  text: "product is added in card!",
-                  icon: "success",
-                  button: "ok",
-                });
-    
-                
-              }
-              else if (res.data.message === "fail to login"){{
-                swal({
-                  title: "try again",
-                  text: "fail to add in card",
-                  icon: "error",
-                  button: "ok",
-                });
-              }
-             
-               } 
-            }
-            )
-
+        e=JSON.stringify(e);
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(e)
+      };
+      fetch(url, requestOptions)
+          .then(response => response.json())
+          .then(data => this.setState(e));
+          
+          swal({
+            title: "Good job!",
+            text: "you are registered successfully!",
+            icon: "success",
+            button: "ok",
+          });
 
       }
     const getProduct = async()=>{
