@@ -1,81 +1,66 @@
-import {React,useEffect,useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { React, useEffect, useState } from 'react'
 import Navbar from '../navbar/navbar.jsx'
-import './product.css'
-
+import './product.css';
+import axios from 'axios';
 import swal from 'sweetalert';
+import { Row, Button
+ } from 'react-bootstrap';
 function Product() {
-    const [products , setProduct]=useState([]);
-      const send=(e)=>{
-        console.log(e);
-        const url="http://localhost:8000/product/card";
-        e=JSON.stringify(e);
-        const requestOptions = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(e)
-      };
-      fetch(url, requestOptions)
-          .then(response => response.json())
-          .then(data => this.setState(e));
-          
-          swal({
+    const [products, setProduct] = useState([]);
+
+    const addToCart = (e) => {
+        axios.get('https://ecom-backend-opal.vercel.app/cart')
+            .then(response => {                
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        swal({
             title: "added to card!",
             text: "you product added to card successfully!",
             icon: "success",
             button: "ok",
-          });
+        });
 
-      }
-    const getProduct = async()=>{
-        const response = await fetch('http://localhost:8000/product/product');
-        console.log(response);
-        const data = await response.json();
-        setProduct(data.data);
+    }
+    const getProduct = async () => {
+        axios.get('https://ecom-backend-opal.vercel.app/products')
+            .then(response => {
+                setProduct(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+       
     }
 
     useEffect(() => {
         getProduct();
-    },[])
+    }, [])
 
+    const renderProduct = (product) => {
+        return( 
+        <div className='card'>
+            <img src={product.images[0]} alt="product" className='productimage' />
+            <div className='detail'>
+                <h3>{product.name}</h3>
+                <p>₹{product.price}</p>
+            </div>
 
-    
-
-
-
-    return (
-        <div>
-            {/*"Id": 1,
-      "picture": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "productName": "Camera",
-      "availableQuantity": 2,
-      "pricePerUnit": 30000,
-      "description": "wonderfull camera"
-    },*/}
-
-            <Navbar/>
-            {
-                products.map((curElem)=>{
-                    return(
-              <>
-             
-                <div className='card'>
-                <img src={curElem.picture} alt="product" className='productimage' />
-                <div className='detail'>
-                    <h3>{curElem.productName}</h3>
-                    <p>{curElem.description}</p>
-                </div>
-            
-                <button className='btn'  value={curElem.Id}  onClick={()=>send(curElem)}>ADD TO CARD</button>
-                        </div>
-                
-                </>
-                    )
-                })
-            }
-            
-            {/*card*/}
-            
+            <Button className='btn' value={product._id} onClick={() => addToCart(product)}>ADD TO CARD</Button>
         </div>
-    )
+        );
+    }
+
+    return <div className='section-products'>
+        <Row>
+        <Navbar />
+        {products.map(renderProduct)}</Row>
+        </div>; 
+
 }
-export default Product
+export default Product;
