@@ -1,17 +1,14 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { React, useEffect, useState } from 'react'
-import Navbar from '../navbar/navbar.jsx'
-import './product.css';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from "axios"
 import swal from 'sweetalert';
-import { Row, Button
- } from 'react-bootstrap';
-function Product() {
-    const [products, setProduct] = useState([]);
+import Navbar from '../navbar/navbar.jsx'
+import Categories from '../category/category.jsx'
 
+const Product = () => {
+    const [cartItems, setCartItems] = useState([]);
     const addToCart = (e) => {
         axios.get('https://ecom-backend-opal.vercel.app/cart')
-            .then(response => {                
+            .then(response => {
                 console.log(response.data);
             })
             .catch(error => {
@@ -26,41 +23,42 @@ function Product() {
         });
 
     }
-    const getProduct = async () => {
-        axios.get('https://ecom-backend-opal.vercel.app/products')
-            .then(response => {
-                setProduct(response.data);
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-       
-    }
 
     useEffect(() => {
-        getProduct();
-    }, [])
+        axios
+            .get("https://ecom-backend-opal.vercel.app/products")
+            .then((response) => {
+                setCartItems(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
-    const renderProduct = (product) => {
-        return( 
-        <div className='card'>
-            <img src={product.images[0]} alt="product" className='productimage' />
-            <div className='detail'>
-                <h3>{product.name}</h3>
-                <p>₹{product.price}</p>
+    return (
+        <div>
+            <Navbar />
+            <Categories/>
+            <div className="container justify-content-center">
+                <div class="row p-5">
+                    <h1>Our Latest Products</h1>
+                    {cartItems.map((item) => (
+
+                        <div class="card border-0 w-25 m-5 text-center col-md-4 shadow p-3 mb-5 bg-white rounded" key={item._id} >
+                            <img class="card-img-top p-1 w-100 h-100" src={item.images[0]} alt="Card image cap" />
+                            <div class="card-body">
+                                <h3>{item.name}</h3>
+                                <p >₹ <span className="text-bold">{item.price}</span> /-</p>
+                                <p>{item.category}</p>
+                                <button className='btn btn-primary' value={item._id} onClick={() => addToCart(item._id)}>ADD TO CARD</button>
+                            </div>
+                        </div>
+
+                    ))}
+                </div>
             </div>
-
-            <Button className='btn' value={product._id} onClick={() => addToCart(product)}>ADD TO CARD</Button>
         </div>
-        );
-    }
-
-    return <div className='section-products'>
-        <Row>
-        <Navbar />
-        {products.map(renderProduct)}</Row>
-        </div>; 
-
+    );
 }
+
 export default Product;
