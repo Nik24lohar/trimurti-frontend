@@ -1,81 +1,64 @@
-import {React,useEffect,useState} from 'react'
-import Navbar from '../navbar/navbar.jsx'
-import './product.css'
-
+import React, { useState, useEffect } from 'react';
+import axios from "axios"
 import swal from 'sweetalert';
-function Product() {
-    const [products , setProduct]=useState([]);
-      const send=(e)=>{
-        console.log(e);
-        const url="http://localhost:8000/product/card";
-        e=JSON.stringify(e);
-        const requestOptions = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(e)
-      };
-      fetch(url, requestOptions)
-          .then(response => response.json())
-          .then(data => this.setState(e));
-          
-          swal({
+import Navbar from '../navbar/navbar.jsx'
+import Categories from '../category/category.jsx'
+
+const Product = () => {
+    const [cartItems, setCartItems] = useState([]);
+    const addToCart = (e) => {
+        axios.get('https://ecom-backend-opal.vercel.app/cart')
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        swal({
             title: "added to card!",
             text: "you product added to card successfully!",
             icon: "success",
             button: "ok",
-          });
+        });
 
-      }
-    const getProduct = async()=>{
-        const response = await fetch('http://localhost:8000/product/product');
-        console.log(response);
-        const data = await response.json();
-        setProduct(data.data);
     }
 
     useEffect(() => {
-        getProduct();
-    },[])
-
-
-    
-
-
+        axios
+            .get("https://ecom-backend-opal.vercel.app/products")
+            .then((response) => {
+                setCartItems(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
     return (
         <div>
-            {/*"Id": 1,
-      "picture": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "productName": "Camera",
-      "availableQuantity": 2,
-      "pricePerUnit": 30000,
-      "description": "wonderfull camera"
-    },*/}
+            <Navbar />
+            <Categories/>
+            <div className="container justify-content-center">
+                <div class="row p-5">
+                    <h1>Our Latest Products</h1>
+                    {cartItems.map((item) => (
 
-            <Navbar/>
-            {
-                products.map((curElem)=>{
-                    return(
-              <>
-             
-                <div className='card'>
-                <img src={curElem.picture} alt="product" className='productimage' />
-                <div className='detail'>
-                    <h3>{curElem.productName}</h3>
-                    <p>{curElem.description}</p>
-                </div>
-            
-                <button className='btn'  value={curElem.Id}  onClick={()=>send(curElem)}>ADD TO CARD</button>
+                        <div class="card border-0 w-25 m-5 text-center col-md-4 shadow p-3 mb-5 bg-white rounded" key={item._id} >
+                            <img class="card-img-top p-1 w-100 h-100" src={item.images[0]} alt="Card image cap" />
+                            <div class="card-body">
+                                <h3>{item.name}</h3>
+                                <p >₹ <span className="text-bold">{item.price}</span> /-</p>
+                                <p>{item.category}</p>
+                                <button className='btn btn-primary' value={item._id} onClick={() => addToCart(item._id)}>ADD TO CARD</button>
+                            </div>
                         </div>
-                
-                </>
-                    )
-                })
-            }
-            
-            {/*card*/}
-            
+
+                    ))}
+                </div>
+            </div>
         </div>
-    )
+    );
 }
-export default Product
+
+export default Product;
