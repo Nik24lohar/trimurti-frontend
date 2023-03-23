@@ -7,7 +7,7 @@ function Category() {
     
     useEffect(() => {
         axios
-        .get("https://ecom-backend-opal.vercel.app/categories")
+        .get("https://ecom-backend-opal.vercel.app/api/category")
         .then((response) => {
             setCategories(response.data);
             console.log(response.data);
