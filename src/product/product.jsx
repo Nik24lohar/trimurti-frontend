@@ -3,11 +3,7 @@ import axios from "axios"
 import swal from 'sweetalert';
 import Navbar from '../navbar/navbar.jsx'
 import Categories from '../category/category.jsx'
-import Reviews from '../Review/review';
-import Stripe from "@stripe/react-stripe-js"
-import StripeCheckout from 'react-stripe-checkout';
 import useRazorpay from "react-razorpay";
-import PaypalCheckoutButton from './PaypalCheckoutButton.js';
 
 
 const Product = () => {
@@ -35,9 +31,29 @@ const Product = () => {
 
     }
 
+    const detectDeviceType = () =>
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+            ? 'Mobile'
+            : 'Desktop';
+    console.log(detectDeviceType());
 
-    function buyViaWhatsapp(){
-        console.log(item.name);
+
+    function buyViaWhatsapp(item) {
+        try {
+            let wpUrlMobile = "https://api.whatsapp.com/send/?phone=918208162056&text=Hey+Trimurti+Traders%2C+I+want+to+buy%0Aproduct+%3A+" + item.name + "%0Aprice+%3A+" + item.price + "%0Acategory+%3A+" + item.category + "&type=phone_number&app_absent=0";
+            let wpUrlDesktop = "https://web.whatsapp.com/send/?phone=918208162056&text=Hey+Trimurti+Traders%2C+I+want+to+buy%0Aproduct+%3A+" + item.name + "%0Aprice+%3A+" + item.price + "%0Acategory+%3A+" + item.category + "&type=phone_number&app_absent=0";
+            wpUrlMobile.replace(/ /g, "%20");
+            wpUrlDesktop.replace(/ /g, "%20");
+
+            if (detectDeviceType() == 'Desktop') {
+                window.open(wpUrlDesktop, "_blank", "noreferrer");
+                console.log('desktop opened')
+            } else if (detectDeviceType() == 'Mobile') {
+                console.log('Mobile opened');
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {
