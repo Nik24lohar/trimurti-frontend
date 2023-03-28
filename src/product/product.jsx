@@ -72,19 +72,18 @@ const Product = () => {
             <Navbar />
             <Categories />
             <div className="container justify-content-center">
-                <div class="row p-5">
+                <div class="row">
                     <h1>Our Latest Products</h1>
                     {cartItems.map((item) => (
 
-                        <div class="card border-0 w-25 m-5 text-center col-md-4 shadow p-3 mb-5 bg-white rounded" key={item._id} >
-                            <img class="card-img-top p-1 w-100 h-100" src={item.images[0]} alt="Card image cap" />
-                            <div class="card-body">
-                                <h3>{item.name}</h3>
-                                <p >₹ <span className="text-bold">{item.price}</span> /-</p>
-                                <p>{item.category}</p>
-                                {/* <button className='btn btn-primary' value={item._id} onClick={() => addToCart(item._id)}>ADD TO CARD</button> */}
-
-                                <button className='btn btn-primary' value={item._id} onClick={() => buyViaWhatsapp(item)}>Buy Now</button>
+                        <div class="col-sm-3">
+                            <div class="card border-0 text-center shadow p-3 bg-white rounded">
+                            <img class="card-img-top p-1 w-100 h-100" src={item.images[0]} alt={item.images[0]} />
+                                <div class="card-block">
+                                    <h4 class="card-title">{item.price}</h4>
+                                    <p class="card-text">{item.category}</p>                                  
+                                    <button className='btn btn-primary' value={item._id} onClick={() => buyViaWhatsapp(item)}>Buy Now</button>
+                                </div>
                             </div>
                         </div>
 
