@@ -80,8 +80,9 @@ const Product = () => {
                             <div className="card border-0 text-center shadow p-3 bg-white rounded">
                             <img className="card-img-top p-1 w-100 h-100" src={item.images[0]} alt={item.images[0]} />
                                 <div className="card-block">
-                                    <h4 className="card-title">{item.price}</h4>
-                                    <p className="card-text">{item.category}</p>                                  
+                                    <h4 className="card-title">{item.name}</h4>
+                                    <p className="card-text">Price : ₹{item.price}</p> 
+                                    <p className="card-text">Category : {item.category}</p>                                  
                                     <button className='btn btn-primary' value={item._id} onClick={() => buyViaWhatsapp(item)}>Buy Now</button>
                                 </div>
                             </div>
