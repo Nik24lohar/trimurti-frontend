@@ -77,11 +77,11 @@ const Product = () => {
                     {cartItems.map((item) => (
 
                         <div class="col-sm-3">
-                            <div class="card border-0 text-center shadow p-3 bg-white rounded">
-                            <img class="card-img-top p-1 w-100 h-100" src={item.images[0]} alt={item.images[0]} />
-                                <div class="card-block">
-                                    <h4 class="card-title">{item.price}</h4>
-                                    <p class="card-text">{item.category}</p>                                  
+                            <div className="card border-0 text-center shadow p-3 bg-white rounded">
+                            <img className="card-img-top p-1 w-100 h-100" src={item.images[0]} alt={item.images[0]} />
+                                <div className="card-block">
+                                    <h4 className="card-title">{item.price}</h4>
+                                    <p className="card-text">{item.category}</p>                                  
                                     <button className='btn btn-primary' value={item._id} onClick={() => buyViaWhatsapp(item)}>Buy Now</button>
                                 </div>
                             </div>
