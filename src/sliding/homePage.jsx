@@ -6,6 +6,8 @@ import '../style/homepage.css';
 import Footer from './footer';
 import Midpart2 from './midpart2';
 import Midpart3 from './mid3part';
+import Reviews from '../Review/review';
+
 
 export class homepage extends Component {
   render() {
@@ -20,6 +22,7 @@ export class homepage extends Component {
         <div className='mid3'>
         <Midpart3/>
         </div>
+        <Reviews/>
       <div className='footer'>
       <Footer/>
       </div>

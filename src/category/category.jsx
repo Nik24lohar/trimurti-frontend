@@ -7,7 +7,7 @@ function Category() {
     
     useEffect(() => {
         axios
-        .get("https://ecom-backend-opal.vercel.app/categories")
+        .get("https://ecom-backend-opal.vercel.app/api/category")
         .then((response) => {
             setCategories(response.data);
             console.log(response.data);
@@ -22,11 +22,13 @@ function Category() {
             <div className="container justify-content-center">
                 <div class="row p-5">
                     <h1>Categories</h1>
-                    {categories.map((item) => (
-                        <div class="card border-0 w-25 m-5 text-center col-md-4 shadow p-3 mb-5 bg-white rounded" key={item._id} >
-                            <img class="card-img-top p-1 w-80 h-80" src={item.img} alt="Category Image" />
-                            <div class="card-body">
-                                <h3>{item.name}</h3>                                                               
+                    {categories.map((item) => (                       
+                        <div class="col-sm-3">
+                            <div className="card border-0 text-center shadow p-3 bg-white rounded">
+                            <img className="card-img-top p-1 w-80 h-80" src={item.img} alt="" />
+                                <div className="card-block">
+                                    <h4 className="card-title">{item.name}</h4>                                                                                                         
+                                </div>
                             </div>
                         </div>
                     ))}
