@@ -74,21 +74,21 @@ function Review() {
             </div>
 
             <div className="container justify-content-center">
-            <form className="section justify-content-center">
-                <h1>Submit a Review</h1>
-                <div class="form-group">                    
-                    <input type="text" onChange={handleName} value={name} class="form-control w-100 mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" />
-                </div>
-                <div class="form-group mt-3">                   
-                    <input onChange={handleRole} type="text" value={role} class="form-control w-100 mt-2 " id="exampleInputPassword1" placeholder="Enter Role" />
-                </div>
-                <div class="form-group mt-3">                    
-                    <textarea rows={4} onChange={handleReview} type="text" value={review} class="form-control w-100 mt-2 " id="exampleInputPassword1" placeholder="Enter Review" />
-                </div>
-                <div className="w-100 mt-2">
-                    <button onClick={submitReview} type="submit" class="btn  btn-primary mt-3">Submit</button>
-                </div>
-            </form>
+                <form className="section justify-content-center">
+                    <h1>Submit a Review</h1>
+                    <div class="form-group">
+                        <input type="text" onChange={handleName} value={name} class="form-control w-100 mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" />
+                    </div>
+                    <div class="form-group mt-3">
+                        <input onChange={handleRole} type="text" value={role} class="form-control w-100 mt-2 " id="exampleInputPassword1" placeholder="Enter Role" />
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea rows={4} onChange={handleReview} type="text" value={review} class="form-control w-100 mt-2 " id="exampleInputPassword1" placeholder="Enter Review" />
+                    </div>
+                    <div className="w-100 mt-2">
+                        <button onClick={submitReview} type="submit" class="btn  btn-primary mt-3">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     )
