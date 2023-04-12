@@ -73,9 +73,9 @@ function Review() {
                 </div>
             </div>
 
-            <div className="container justify-content-center">
+            <div class="p-3 mb-2 bg-light text-dark">
                 <form className="section justify-content-center">
-                    <h1>Submit a Review</h1>
+                    <h2 class="p-5">Submit a Review</h2>
                     <div class="form-group">
                         <input type="text" onChange={handleName} value={name} class="form-control w-100 mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" />
                     </div>
