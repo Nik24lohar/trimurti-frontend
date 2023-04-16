@@ -3,6 +3,9 @@ import axios from "axios"
 import 'bootstrap/dist/css/bootstrap.css';
 import { Carousel } from 'react-bootstrap';
 
+import StarIcon from '@mui/icons-material/Star';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+
 function Review() {
     const [reviewItems, setReviewItems] = useState([]);
     const [name, setName] = useState("")
@@ -50,20 +53,21 @@ function Review() {
     }, []);
 
     return (
-        <div>
-            <div className="container justify-content-center">
-                <div class="row p-5">
-                    <h1>Testmonials</h1>
+        <div className='p-5'> 
+            <div>
+                <div>
+                    <h1 className='display-4 pb-5 text-danger mb-5 fw-bold'>Testmonials</h1>
                     <Carousel>
                         {reviewItems.map((item) => (
 
                             <Carousel.Item interval={1000}>
 
-                                <div class="p-3 mb-5 bg-white rounded" key={item._id} >
+                                <div class="p-3 mb-5 homeBody rounded" key={item._id} >
                                     <div class="card-body">
-                                        <p>{item.review}</p>
-                                        <h3>{item.name}</h3>
-                                        <h5>{item.role}</h5>
+                                        <h5 className='text-secondary'>{item.role}</h5>
+                                        <h3 className="text-info display-3">{item.name}</h3>
+                                        <p className='fw-bold h1'>{item.review}</p>
+                                        <StarIcon/><StarIcon/><StarIcon/><StarIcon/><StarHalfIcon/>
                                     </div>
                                 </div>
                             </Carousel.Item>
@@ -73,9 +77,9 @@ function Review() {
                 </div>
             </div>
 
-            <div class="p-3 mb-2 bg-light text-dark">
-                <form className="section justify-content-center">
-                    <h2 class="p-5">Submit a Review</h2>
+            <div className="container justify-content-center p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <form className="section  justify-content-center">
+                    <h1 className='display-4 pb-5 text-danger mb-5 fw-bold'>Submit a Review</h1>
                     <div class="form-group">
                         <input type="text" onChange={handleName} value={name} class="form-control w-100 mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" />
                     </div>

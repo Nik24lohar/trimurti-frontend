@@ -71,39 +71,41 @@ function Login() {
     <div>
     <Navbar/>
       <div className="back">
-       
-        <div className="main">
-        <h3 className="mb-5">Sign in</h3>
-        <form onSubmit={(e)=>submit(e)}>
-        <div className='middel_section'>
-        <div className="form-outline mb-4">
+       <div>
+       <div className="container card p-5 bg-white">
+       <h3 className="mb-5 text-center pt-5">Sign in</h3>
+       <form className='container' onSubmit={(e)=>submit(e)}>
+       <div className='middel_section'>
+       <div className="form-outline mb-4">
        
           <input type="email" onChange={(e)=>handle(e)} id="email" value={data.email} placeholder='Email' className="form-control form-control-lg" />
-        </div>
-        <div className="form-outline mb-4">
+          </div>
+          <div className="form-outline mb-4">
           <input type="password" onChange={(e)=>handle(e)} id="password" value={data.password} placeholder='Password' className="form-control form-control-lg" />
         </div>
-        <div className="form-check d-flex justify-content-center mb-4">
+        <div className="form-check d-flex justify-content-start mb-4">
             <input className="form-check-input me-2" type="checkbox" defaultValue id="form2Example33"  />
-          <label className="form-check-label" htmlFor="form1Example3"> Remember password </label>
+            <label className="form-check-label " htmlFor="form1Example3"> Remember password </label>
           
         </div>
         <button type="submit" className="btn2">
                           LOGIN
         </button>
-        <hr/>
-      <a href='/signup' className='btn1'>register yourself</a>
-      
+        <br />
+        <br />
+        <a href='/signup' style={{textDecoration:"none"}} className='btn1'>register yourself</a>
+        
         </div>
-      </form>
+        </form>
         </div>
         
-      </div>
-    
-      <Footer/>
-      
-  </div>
-  )
+        </div>
+        </div>
+        
+        <Footer/>
+        
+        </div>
+        )
 }
 
 export default Login;

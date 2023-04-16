@@ -1,6 +1,6 @@
 import Navbar from '../navbar/navbar';
 import React, { Component } from 'react'
-import Comapnyname from './comapnyname';
+
 import Midpart from './midpart';
 import '../style/homepage.css';
 import Footer from './footer';
@@ -12,20 +12,21 @@ import Reviews from '../Review/review';
 export class homepage extends Component {
   render() {
     return (
-      <div className='body'>
+      <div className=''>
         <Navbar/>
-        <Comapnyname/>
+       <div className='homeBody'>
+
+        <div className=' text-start p-5'>
+        <h1 className='title' class="display3 fw-holder">Trimurti</h1>
+        <h2 className='subtitle' class="display4 fw-holder">Goals are dreams with deadlines</h2>
+        </div>
         <Midpart/>
-        <div className='mid2'>
         <Midpart2/>
-        </div>
-        <div className='mid3'>
         <Midpart3/>
-        </div>
         <Reviews/>
-      <div className='footer'>
-      <Footer/>
-      </div>
+       </div>
+        <Footer/>
+       
       </div>
     )
   }
