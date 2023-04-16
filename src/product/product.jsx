@@ -4,7 +4,8 @@ import swal from 'sweetalert';
 import Navbar from '../navbar/navbar.jsx'
 import Categories from '../category/category.jsx'
 import useRazorpay from "react-razorpay";
-
+import "../category/category.css"
+import Footer from '../sliding/footer';
 
 const Product = () => {
     const Razorpay = useRazorpay();
@@ -70,15 +71,17 @@ const Product = () => {
     return (
         <div>
             <Navbar />
+            <div className="container pt-2 pb-5">
+
             <Categories />
             <div className="container justify-content-center">
-                <div class="row">
-                    <h1>Our Latest Products</h1>
+                <div class="row gx-5 gy-5">
+                    <h1 className='display-4 pb-5 text-danger mb-5 fw-bold'>Our Latest Products</h1>
                     {cartItems.map((item) => (
 
-                        <div class="col-sm-3">
+                        <div class="col-md-4">
                             <div className="card border-0 text-center shadow p-3 bg-white rounded">
-                            <img className="card-img-top p-1 w-100 h-100" src={item.images[0]} alt={item.images[0]} />
+                            <img className="card-img-top categoryImg" src={item.images[0]} alt={item.images[0]} />
                                 <div className="card-block">
                                     <h4 className="card-title">{item.name}</h4>
                                     <p className="card-text">Price : ₹{item.price}</p> 
@@ -91,6 +94,8 @@ const Product = () => {
                     ))}
                 </div>
             </div>
+            </div>
+            <Footer />
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import axios from "axios"
+import "./category.css"
 
 function Category() {
     const [categories, setCategories] = useState([]);
@@ -19,21 +20,23 @@ function Category() {
 
     return (
         <div>
-            <div className="container justify-content-center">
-                <div class="row p-5">
-                    <h1>Categories</h1>
+            <div className="container categoryCard justify-content-center">
+                <div class="row gx-5 gy-5">
+                    <h1 className='display-4 pb-5 text-danger mb-5 fw-bold'>Categories</h1>
                     {categories.map((item) => (                       
-                        <div class="col-sm-3">
+                        <div class="col-md-4">
                             <div className="card border-0 text-center shadow p-3 bg-white rounded">
-                            <img className="card-img-top p-1 w-80 h-80" src={item.img} alt="" />
+                            <img className="card-img-top categoryImg" src={item.img} alt="" />
                                 <div className="card-block">
                                     <h4 className="card-title">{item.name}</h4>                                                                                                         
                                 </div>
                             </div>
+                        
                         </div>
                     ))}
                 </div>
             </div>
+            
         </div>
     )
 }

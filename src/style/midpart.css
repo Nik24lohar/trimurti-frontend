@@ -1,63 +1,11 @@
-.First{
-    position: absolute;
-    left: 0;
-    margin-top: 200px;
-    margin-left: 10%;
-    width: 300px;
-    border: solid rgb(242, 112, 112) ;
-    border-radius:50% ;
-
+.hero{
+width: 450px;
 }
-.images{
-    margin-top: 20%;
-}
-.Second{
-    position: absolute;
-    left: 0;
-    margin-top: 450px;
-    margin-left: 5%;
-    width: 300px;
-    border: solid rgb(242, 112, 112) ;
-    border-radius: 50%;
-    border-width: 5px;
-}
-.Third{
-    position: absolute;
-    left: 0;
-    margin-top: 650px;
-    margin-left: 230px;
-    width: 300px;
-    border: solid #f27070 ;
-    border-radius: 50%;
-    border-width: 5px;
-
+ul li{
+    list-style-type: none !important;
 }
 .textpart{
-
-    position: absolute;
-    right: 0;
-    margin-top: 200px;
-    margin-right: 200px;
     font-size: 1.5em;
 }
 
-.part{
-    color:#f27070 ;
-}
 
-.part1{
-    margin-right: 90px;
-}
-.part2{
-    margin-left: 40px;
-    
-}
-.part4{
-    margin-left:20px ;
-}
-.part5{
-    margin-left: 40px;
-}
-.part6{
-    margin-right: 15px;
-}

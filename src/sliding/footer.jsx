@@ -8,9 +8,9 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 export class footer extends Component {
   render() {
     return (
-      <div className='footers'>
+      <div className=''>
          {/* Remove the container if you want to extend the Footer to full width. */}
-      <div className="container my-5">
+      <div className="">
         {/* Footer */}
         <footer className="text-center text-lg-start text-white" style={{backgroundColor: '#929fba'}}>
           {/* Grid container */}
@@ -83,8 +83,8 @@ export class footer extends Component {
           {/* Grid container */}
           {/* Copyright */}
           <div className="text-center p-3" style={{backgroundColor: 'rgba(0, 0, 0, 0.2)'}}>
-            © 2020 Copyright:
-            <a className="text-white" href="website">Team TKIT.com</a>
+            © 2022 Copyright:
+            <a className="text-white" href="website" style={{textDecoration:"none"}}>Team XYZ</a>
           </div>
           {/* Copyright */}
         </footer>
