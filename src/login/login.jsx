@@ -34,7 +34,7 @@ function Login() {
         console.log("login success")
         swal({
           title: "Good job!",
-          text: "you are registered successfully!",
+          text: "you are logged in successfully!",
           icon: "success",
           button: "ok",
         });
@@ -44,7 +44,7 @@ function Login() {
       console.log(err)
       swal({
         title: "try again",
-        text: "fail to register",
+        text: "fail to login",
         icon: "error",
         button: "ok",
       });
