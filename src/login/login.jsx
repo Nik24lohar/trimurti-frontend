@@ -7,105 +7,90 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 function Login() {
   const navigate = useNavigate();
-  const url="http://127.0.0.1:8000/login/";
-  const [data,setData]=useState(
+  const url = "https://ecom-backend-opal.vercel.app/api/signin/";
+  const [data, setData] = useState(
     {
       "email": "",
       "password": "",
-    
-    })
-    function handle(e){
-      const newdata={...data}
-      newdata[e.target.id]=e.target.value
-      setData(newdata)
-      console.log(newdata)
-    }
-    
-    function submit(e){
-      e.preventDefault();
 
-      if(data.email==="nikitalohar@gmail.com" && data.password==="Admin"){
+    })
+  function handle(e) {
+    const newdata = { ...data }
+    newdata[e.target.id] = e.target.value
+    setData(newdata)
+    console.log(newdata)
+  }
+
+  function submit(e) {
+    e.preventDefault();
+
+    console.log(data.email, data.password)
+    axios.post("https://ecom-backend-opal.vercel.app/api/signin", {
+      email: data.email,
+      password: data.password,
+
+    }).then(result => {
+      if (result.status == 200) {
+        console.log("login success")
         swal({
           title: "Good job!",
-          text: "you are registered successfully!",
+          text: "you are logged in successfully!",
           icon: "success",
           button: "ok",
         });
-        navigate('/admin/product', { replace: true });
+        navigate('/product', { replace: true });
       }
+    }).catch(err => {
+      console.log(err)
+      swal({
+        title: "try again",
+        text: "fail to login",
+        icon: "error",
+        button: "ok",
+      });
+    })
 
-
-      axios.post(url,
-        {
-          "email": data.email,
-          "password": data.password
-        
-        }
-          ).then(
-        res=>{
-          if (res.data.message === "login successfully"){
-            swal({
-              title: "Good job!",
-              text: "you are registered successfully!",
-              icon: "success",
-              button: "ok",
-            });
-
-            navigate('/product', { replace: true });
-          }
-          else if (res.data.message === "fail to login"){{
-            swal({
-              title: "try again",
-              text: "fail to register",
-              icon: "error",
-              button: "ok",
-            });
-          }
-         
-           } 
-        }
-    )
   }
 
   return (
     <div>
-    <Navbar/>
+      <Navbar />
       <div className="back">
-       <div>
-       <div className="container card p-5 bg-white">
-       <h3 className="mb-5 text-center pt-5">Sign in</h3>
-       <form className='container' onSubmit={(e)=>submit(e)}>
-       <div className='middel_section'>
-       <div className="form-outline mb-4">
-       
-          <input type="email" onChange={(e)=>handle(e)} id="email" value={data.email} placeholder='Email' className="form-control form-control-lg" />
+        <div>
+          <div className="container card p-5 bg-white">
+            <h3 className="mb-5 text-center pt-5">Sign in</h3>
+            <form className='container' onSubmit={(e) => submit(e)}>
+              <div className='middel_section'>
+                <div className="form-outline mb-4">
+
+                  <input type="email" onChange={(e) => handle(e)} id="email" value={data.email} placeholder='Email' className="form-control form-control-lg" />
+                </div>
+                <div className="form-outline mb-4">
+                  <input type="password" onChange={(e) => handle(e)} id="password" value={data.password} placeholder='Password' className="form-control form-control-lg" />
+                </div>
+                <div className="form-check d-flex justify-content-start mb-4">
+                  <input className="form-check-input me-2" type="checkbox" defaultValue id="form2Example33" />
+                  <label className="form-check-label " htmlFor="form1Example3"> Remember password </label>
+
+                </div>
+                <button type="submit" className="btn2">
+                  LOGIN
+                </button>
+                <br />
+                <br />
+                <a href='/signup' style={{ textDecoration: "none" }} className='btn1'>register yourself</a>
+
+              </div>
+            </form>
           </div>
-          <div className="form-outline mb-4">
-          <input type="password" onChange={(e)=>handle(e)} id="password" value={data.password} placeholder='Password' className="form-control form-control-lg" />
+
         </div>
-        <div className="form-check d-flex justify-content-start mb-4">
-            <input className="form-check-input me-2" type="checkbox" defaultValue id="form2Example33"  />
-            <label className="form-check-label " htmlFor="form1Example3"> Remember password </label>
-          
-        </div>
-        <button type="submit" className="btn2">
-                          LOGIN
-        </button>
-        <br />
-        <br />
-        <a href='/signup' style={{textDecoration:"none"}} className='btn1'>register yourself</a>
-        
-        </div>
-        </form>
-        </div>
-        
-        </div>
-        </div>
-        
-        <Footer/>
-        
-        </div>
-        )
+      </div>
+
+      <Footer />
+
+    </div>
+  )
 }
 
 export default Login;
