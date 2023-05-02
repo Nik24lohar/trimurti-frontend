@@ -23,7 +23,7 @@ console.log(getdata)
                 <a className="nav-link" href="product">Products</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="agreements">Trade agreements</a>
+                <a className="nav-link" href="https://trade-agreement-dashboard.vercel.app/">Trade agreements</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link " href="Feedback">Feedback</a>
