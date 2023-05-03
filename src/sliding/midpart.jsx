@@ -9,22 +9,22 @@ export class midpart extends Component {
     return (
         <div className=' p-5 m-5'>
         
-        <div className='row pt-5'>
+        <div className='row pt-5 d-flex' >
 
-      <div className='col pb-5'>
-        <img src={require("../images/hero.png")} height="auto" width={250} className="hero" alt="" srcset="" />
+      <div className='col-md-6 pb-5'>
+        <img src={require("../images/hero.png")}  className="w-75  img-fluid" alt="" srcset="" />
       </div>
      
-      <div className='  col pt-5'>
+      <div className='  col-md-6 pt-5'>
       <h1 className='text-start mt-5'>Innovative <span style={{color:"red"}}>oil filtering</span> System </h1><br/>
       <ul className='text-start mt-5 ml-5'>
-        <li><CheckIcon style={{color:"blue"}}/> Mart 360 technology</li><br />
-        <li><CheckIcon style={{color:"blue"}}/> Intelligent unmanned systems</li> <br />
-        <li><CheckIcon style={{color:"blue"}}/> Intelligent chemical mixing system</li><br />
-        <li><CheckIcon style={{color:"blue"}}/> Innovative suspension system</li><br />
-        <li><CheckIcon style={{color:"blue"}}/> Unique embedded fast air drying</li><br />
-        <li><CheckIcon style={{color:"blue"}}/> Digital voice security alarm system</li><br />
-        <li><CheckIcon style={{color:"blue"}}/> Faulty self-checking system</li>
+        <li className='h2'><CheckIcon style={{color:"blue"}}/> Mart 360 technology</li><br />
+        <li className='h2'><CheckIcon style={{color:"blue"}}/> Intelligent unmanned systems</li> <br />
+        <li className='h2'><CheckIcon style={{color:"blue"}}/> Intelligent chemical mixing system</li><br />
+        <li className='h2'><CheckIcon style={{color:"blue"}}/> Innovative suspension system</li><br />
+        <li className='h2'><CheckIcon style={{color:"blue"}}/> Unique embedded fast air drying</li><br />
+        <li className='h2'><CheckIcon style={{color:"blue"}}/> Digital voice security alarm system</li><br />
+        <li className='h2'><CheckIcon style={{color:"blue"}}/> Faulty self-checking system</li>
       </ul>
       </div>
         </div>
