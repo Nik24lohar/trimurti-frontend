@@ -74,6 +74,7 @@ const Product = () => {
             <div className="container pt-2 pb-5">
 
                 <Categories />
+                <div className='p-5'></div><div className='p-5'></div>
                 <div className="container justify-content-center">
                     <div class="row gx-5 gy-5">
                         <h1 className='display-4 pb-5 text-danger mb-5 fw-bold'>Our Latest Products</h1>
@@ -85,6 +86,7 @@ const Product = () => {
                                     <div className="card-block">
                                         <h4 className="card-title">{item.name}</h4>
                                         <p className="card-text">Price : ₹{item.price}</p>
+                                        <p className="card-text">size : { } inches</p>
                                         <p className="card-text">Category : {item.category}</p>
                                         <select onChange="" option class="form-select w-100 mt-2 " aria-label="Default select example">
 

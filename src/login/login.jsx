@@ -56,11 +56,11 @@ function Login() {
     <div>
       <Navbar />
       <div className="back">
-        <div>
+        <div className=''>
           <div className="container card p-5 bg-white">
             <h3 className="mb-5 text-center pt-5">Sign in</h3>
             <form className='container' onSubmit={(e) => submit(e)}>
-              <div className='middel_section'>
+              <div className='middel_section '>
                 <div className="form-outline mb-4">
 
                   <input type="email" onChange={(e) => handle(e)} id="email" value={data.email} placeholder='Email' className="form-control form-control-lg" />
@@ -73,12 +73,12 @@ function Login() {
                   <label className="form-check-label " htmlFor="form1Example3"> Remember password </label>
 
                 </div>
-                <button type="submit" className="btn2">
+                <button type="submit" className="btn btn-primary">
                   LOGIN
                 </button>
                 <br />
                 <br />
-                <a href='/signup' style={{ textDecoration: "none" }} className='btn1'>register yourself</a>
+                <a href='/signup' style={{ textDecoration: "none" }} className='text-primary h4'>Sign Up</a>
 
               </div>
             </form>

@@ -17,11 +17,11 @@ export class homepage extends Component {
        <div className='homeBody'>
 
         <div className=' text-start p-5'>
-        <h1 className='title' class="display3 fw-holder">Trimurti</h1>
+        <h1 className='title' class="display-1 h1 fw-holder">Trimurti Engineering</h1>
         <h2 className='subtitle' class="display4 fw-holder">Goals are dreams with deadlines</h2>
         </div>
         <Midpart/>
-        <Midpart2/>
+        {/* <Midpart2/> */}
         <Midpart3/>
         <Reviews/>
        </div>

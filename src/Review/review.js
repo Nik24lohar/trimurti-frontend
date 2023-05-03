@@ -56,7 +56,9 @@ function Review() {
         <div className='p-5'> 
             <div>
                 <div>
-                    <h1 className='display-4 pb-5 text-danger mb-5 fw-bold'>Testmonials</h1>
+                    <h1 className='display-4 p-5 text-danger mb-5 fw-bold'>Testmonials</h1>
+                    <div className='p-5'>
+
                     <Carousel>
                         {reviewItems.map((item) => (
 
@@ -74,6 +76,7 @@ function Review() {
 
                         ))}
                     </Carousel>
+                    </div>   
                 </div>
             </div>
 

@@ -7,7 +7,7 @@ import CheckIcon from '@mui/icons-material/Check';
 export class midpart extends Component {
   render() {
     return (
-        <div className=' p-5 mt-5'>
+        <div className=' p-5 m-5'>
         
         <div className='row pt-5'>
 

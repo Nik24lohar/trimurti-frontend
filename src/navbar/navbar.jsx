@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import './navbar.css'
 import { useSelector } from 'react-redux';
 function Navbar() {
-  
-    const getdata = useSelector((state)=>state.cartreducer);
-console.log(getdata) 
-    return (
-      <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+
+  const getdata = useSelector((state) => state.cartreducer);
+  console.log(getdata)
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand fw-bolder" href="Trimurti">TRIMURTI</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,9 +40,9 @@ console.log(getdata)
       </nav>
 
 
-      </div>
-    )
-  }
+    </div>
+  )
+}
 
 
 export default Navbar

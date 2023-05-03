@@ -62,19 +62,19 @@ export class footer extends Component {
                   {/* Grid column */}
                   {/* Grid column */}
                   <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h6 className="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+                    {/* <h6 className="text-uppercase mb-4 font-weight-bold">Follow us</h6> */}
                     {/* Facebook */}
-                    <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#3b5998' }} href="facebook" role="button"><FacebookIcon /></a>
+                    {/* <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#3b5998' }} href="facebook" role="button"><FacebookIcon /></a> */}
                     {/* Twitter */}
-                    <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#55acee' }} href="Twitter" role="button"><TwitterIcon /></a>
+                    {/* <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#55acee' }} href="Twitter" role="button"><TwitterIcon /></a> */}
                     {/* Google */}
-                    <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#dd4b39' }} href="Google" role="button"><GoogleIcon /></a>
+                    {/* <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#dd4b39' }} href="Google" role="button"><GoogleIcon /></a> */}
                     {/* Instagram */}
-                    <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#ac2bac' }} href="Insta" role="button"><InstagramIcon /></a>
+                    {/* <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#ac2bac' }} href="Insta" role="button"><InstagramIcon /></a> */}
                     {/* Linkedin */}
-                    <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#0082ca' }} href="Linked in" role="button"><LinkedInIcon /></a>
+                    {/* <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#0082ca' }} href="Linked in" role="button"><LinkedInIcon /></a> */}
                     {/* Github */}
-                    <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#333333' }} href="Github" role="button"><GitHubIcon /></a>
+                    {/* <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: '#333333' }} href="Github" role="button"><GitHubIcon /></a> */}
                   </div>
                 </div>
                 {/*Grid row*/}
