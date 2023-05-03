@@ -8,4 +8,15 @@ ul li{
     font-size: 1.5em;
 }
 
+@media only screen and (max-width: 767.98px), only screen and (min-width: 567px) and (max-width: 900px) and (orientation: landscape) {
+    .hero {
+    width: 300px !important;
+    position: absolute;
+    right: 20px;
+    top: 170px;
+    padding: 50px;
+    margin: 50px;
+    }
+}
+
 
