@@ -97,7 +97,7 @@ const Product = () => {
                                             <option>8mm</option>
 
                                         </select>
-                                        <button className='btn btn-primary' value={item._id} onClick={() => buyViaWhatsapp(item)}>Buy Now</button>
+                                        <button className='btn btn-primary mt-3' value={item._id} onClick={() => buyViaWhatsapp(item)}>Buy Now</button>
                                     </div>
                                 </div>
                             </div>
